@@ -1,16 +1,8 @@
-import fields
-from fields import *
-import connection
-from connection import *
-from exceptions import *
-import exceptions
-import proxy
-from proxy import *
-import direct
-from direct import *
+VERSION = (0, 1)
 
-__all__ = (
-    fields.__all__ + connection.__all__ + list(exceptions.__all__)
-        # + direct.__all__
-        + proxy.__all__
-    )
+def get_version():
+    if isinstance(VERSION[-1], basestring):
+        return '.'.join(map(str, VERSION[:-1])) + VERSION[-1]
+    return '.'.join(map(str, VERSION))
+
+__version__ = get_version()

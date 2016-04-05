@@ -1,16 +1,20 @@
 from setuptools import setup, find_packages
 
+
 CLS = [
     'Intended Audience :: Developers',
     'Topic :: Database',
     'Topic :: Software Development :: Libraries :: Python Modules',
 ]
 
+version = __import__('redisengine').get_version()
+
 setup(
   name='redisengine',
   packages=['redisengine'],
-  version='0.1',
+  version=version,
   license='MIT',
+  url="https://github.com/RedisEngine/redisengine",
   include_package_data=True,
   description='A MongoEngine-inspired, Object-Type mapper for working with Redis',
   long_description=open('README.rst').read(),
