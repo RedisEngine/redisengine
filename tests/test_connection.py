@@ -9,10 +9,9 @@ except ImportError:
     import unittest
 import redis
 
-from redisengine import connect, register_connection
 import redisengine.connection
 from redisengine.proxy.tree import ProxyTree
-from redisengine.connection import get_connection, ConnectionError
+from redisengine.connection import register_connection, connect, get_connection, ConnectionError
 
 
 class ConnectionTest(unittest.TestCase):

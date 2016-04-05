@@ -3,8 +3,9 @@ import sys
 sys.path[0:0] = [""]
 import unittest
 
-from redisengine import *
 from redisengine import fields
+from redisengine.proxy.tree import ProxyTree
+from redisengine.connection import connect, get_connection
 
 __all__ = ("ClassMethodsTest", )
 

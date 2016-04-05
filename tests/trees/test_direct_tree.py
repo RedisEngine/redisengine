@@ -12,11 +12,11 @@ import uuid
 import math
 import re
 
-from redisengine import *
 from redisengine import fields
 from redisengine import exceptions
-from redisengine.connection import get_connection
+from redisengine.connection import connect, get_connection
 from redisengine.direct.tree import DirectTree
+from redisengine.proxy.tree import ProxyTree
 
 __all__ = ("TestDirectTree", )
 

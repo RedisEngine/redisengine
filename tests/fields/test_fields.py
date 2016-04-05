@@ -18,10 +18,11 @@ except ImportError:
 
 from decimal import Decimal
 
-from redisengine import *
 from redisengine import fields
 from redisengine import exceptions
-from redisengine.connection import get_connection
+from redisengine.connection import connect, get_connection
+from redisengine.proxy.tree import ProxyTree
+
 
 __all__ = ("FieldTest", )
 
@@ -246,7 +247,7 @@ class FieldTest(unittest.TestCase):
         """Ensure that invalid values cannot be assigned to int fields.
         """
         class Person(ProxyTree):
-            age = IntField(min_value=0, max_value=110)
+            age = fields.IntField(min_value=0, max_value=110)
 
         person = Person()
         person.age = 50
@@ -283,8 +284,8 @@ class FieldTest(unittest.TestCase):
 
         class BlogPost(ProxyTree):
             content = fields.StringField()
-            comments = fields.ListField(StringField())
-            tags = fields.ListField(StringField())
+            comments = fields.ListField(fields.StringField())
+            tags = fields.ListField(fields.StringField())
 
         post = BlogPost(content='Went for a walk today...')
         post.validate()
@@ -305,7 +306,7 @@ class FieldTest(unittest.TestCase):
 
         BlogPost.drop_tree()
 
-    
+
 
 
 if __name__ == '__main__':

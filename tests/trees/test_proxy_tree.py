@@ -2,7 +2,8 @@
 import unittest
 from time import time
 
-from redisengine import ProxyTree, fields, exceptions
+from redisengine import fields, exceptions
+from redisengine.proxy.tree import ProxyTree
 from redisengine.connection import connect, get_connection, register_connection
 
 __all__ = ("TestProxyTree", )
