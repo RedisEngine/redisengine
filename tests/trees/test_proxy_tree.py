@@ -5,6 +5,8 @@ from time import time
 from redisengine import ProxyTree, fields, exceptions
 from redisengine.connection import connect, get_connection, register_connection
 
+__all__ = ("TestProxyTree", )
+
 class TestProxyTree(unittest.TestCase):
     def setUp(self):
         connect(10)
@@ -502,7 +504,7 @@ class TestProxyTree(unittest.TestCase):
         data = {'name':"Joe",
                 'age':323,
                 'addressess': ["FooBar St 23"]}
-                
+
         complex_person = self.ComplexPerson(**data)
         complex_person.save()
         complex_person = self.ComplexPerson.proxy_tree(complex_person.id)

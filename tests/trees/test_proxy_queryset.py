@@ -5,6 +5,8 @@ from time import time
 from redisengine import ProxyTree, fields, exceptions
 from redisengine.connection import connect, get_connection, register_connection
 
+__all__ = ("TestProxyTreeQueryset", )
+
 class TestProxyTreeQueryset(unittest.TestCase):
     def setUp(self):
         connect(10)
@@ -28,5 +30,5 @@ class TestProxyTreeQueryset(unittest.TestCase):
     def test_all(self):
         person = self.ComplexPerson(name="Joe", age=234, addressess=['234'])
         person.save()
-        self.assertEqual(
-                list(self.ComplexPerson.proxy_tree.all())[0], person)
+        all_persons = self.ComplexPerson.proxy_tree.all()
+        self.assertEqual(list(all_persons)[0], person)

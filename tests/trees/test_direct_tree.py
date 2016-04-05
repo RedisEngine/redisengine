@@ -18,6 +18,8 @@ from redisengine import exceptions
 from redisengine.connection import get_connection
 from redisengine.direct.tree import DirectTree
 
+__all__ = ("TestDirectTree", )
+
 class TestDirectTree(unittest.TestCase):
     def setUp(self):
         connect(10)
@@ -73,7 +75,7 @@ class TestDirectTree(unittest.TestCase):
         dir_doc = Article.direct_tree(doc.id)
         self.assertEqual('<Article DirectTree: None>', repr(dir_doc))
 
-    def test_instantating_with_illegal_subclass(self):
+    def test_instantiating_with_illegal_subclass(self):
         """Ensure we can't instantiate classes with DirectTree as a base class
         """
 
@@ -104,7 +106,7 @@ class TestDirectTree(unittest.TestCase):
         self.assertEqual(d2.rank, "Private")
 
 
-    def test_custom_id_field_with_direct_tree(self):
+    def test_custom_id_field(self):
         """Ensure we can read from Redis with custom id"""
         self.ComplexPerson.drop_tree()
         complex_person = self.ComplexPerson(
@@ -333,9 +335,6 @@ class TestDirectTree(unittest.TestCase):
                 dper.domains = [243]
             except exceptions.ValidationError:
                 self.fail()
-
-
-
 
 if __name__ == '__main__':
     unittest.main()
