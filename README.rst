@@ -7,19 +7,29 @@ RedisEngine
 
 About
 =====
-RedisEngine is **intended** to be a Python Object-Type Mapper for working with Redis.
-This is a work in progress, as several things are pending completion like exhaustive tests,
-CI, documentation and API ref.
-
+RedisEngine is intended to be an ORM-like Object-To-Redis-Type-Mapper written in Python.
+This is a work in progress, as several things are pending completion, like: exhaustive tests,
+CI, documentation and API reference.
 
 **Given the above, any usage other than experimental is strongly discouraged for the time being.**
+
+Future releases will include integration with Django's and MongoEngine's signal framework/module so that cache management can be automated
+in a customizable fashion.
+
+
+Motivation
+==========
+I found myself in an occasional need of cache validation which usually resulted in a more entropic (and WET) code to cope with.
+It naturally occurred this would be the best course of action.
+
+
 
 Installation
 ============
 ``pip install -U redisengine``.
-`GitHub <http://github.com/RedisEngine/redisengine>`_ and run ``python setup.py install``.
 
-Alternatively, download the `source <http://github.com/RedisEngine/redisengine>`_ and run ``python setup.py install``.
+Alternatively, download the `source <http://github.com/RedisEngine/redisengine>`_ and run
+``python setup.py install``.
 
 
 
@@ -30,12 +40,10 @@ Dependencies
 
 Tests
 =====
-To run the test suite, ensure you are running a local instance of MongoDB on
+To run the test suite, ensure you are running a local instance of Redis on
 the standard port, and run: ``python setup.py nosetests``.
 
-If you wish to run one single or selected tests, use the nosetest convention. It will find the folder,
-eventually the file, go to the TestClass specified after the colon and eventually right to the single test.
-Also use the -s argument if you want to print out whatever or access pdb while testing.
+Run selected tests with:
 
 .. code-block:: shell
 
