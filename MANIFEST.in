@@ -1,0 +1,6 @@
+include MANIFEST.in
+include *.rst
+include *.md
+graft redisengine
+graft tests
+prune redisengine/logs
