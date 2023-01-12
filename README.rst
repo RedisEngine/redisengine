@@ -3,7 +3,6 @@ RedisEngine
 ===========
 :Info: RedisEngine is a MongoEngine-inspired lib for ORM-like manipulation of Redis-powered cache in Python.
 :Repository: https://github.com/RedisEngine/redisengine
-:Author: Kris Kavalieri (https://github.com/kriskavalieri)
 
 About
 =====
